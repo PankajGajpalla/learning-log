@@ -1,11 +1,11 @@
 from datetime import datetime
 
-goal = [ "fine-tune a model", "high income", "get a job at google"]
+goals = [ "fine-tune a model", "high income", "get a job at google"]
 
-for i,a in enumerate(goal):
-    print(f"{i+1}. {a}")
+for i,goal in enumerate(goals):
+    print(f"{i+1}. {goal}")
 
-def years_remaining(target_year:int):
-    return f"years left: {target_year - datetime.now().year}"
+def years_remaining(target_year:int) -> int:
+    return target_year - datetime.now().year
 
-print(years_remaining(2030))
+print(f"years left: {years_remaining(2030)}")
