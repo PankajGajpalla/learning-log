@@ -1,12 +1,13 @@
 
 skills = {"python": 3, "numpy": 1, "pandas": 1, "linear algebra": 2}
 
-li = [skill for skill in skills if skills[skill]<3]
+skills_to_improve = [skill for skill in skills if skills[skill]<3]
+print(skills_to_improve)
 
-lines = 0
+
 with open("notes.txt", 'r') as file:
-    for line in file:
-        lines +=1
+    lines = sum(1 for _ in file)
+        
 print(f"your file has {lines} lines")
 
 def update_skill(skills_dict, skill_name, new_level):
@@ -21,5 +22,8 @@ def update_skill(skills_dict, skill_name, new_level):
         print(f"ERROR: {e}")
 
 
-update_skill(skills, "python", 4)
-update_skill(skills, "numpy", 5)
+try:
+    update_skill(skills, "python", 4)
+    update_skill(skills, "numpy", 5)
+except ValueError as e:
+    print(f"ERROR: {e}")
