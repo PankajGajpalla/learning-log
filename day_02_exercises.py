@@ -25,7 +25,7 @@ m = rng.normal(loc=0.0, scale=1, size=(5,5))
 
 print(f"matrix: \n{m}")
 print(f"diagonal: \n{m.diagonal()}")
-print(f"second row: \n{m[2]}")
+print(f"second row: \n{m[1]}")
 print(f"last col: {m[:,-1]}")
 print(f"3x3 matrics: {m[:3, :3]}")
 
