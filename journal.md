@@ -3,3 +3,6 @@
 
 # 23 june 2026
 * learned numpy, concept of broadcasting
+
+# 1 june 2026
+* did exercises 
