@@ -104,16 +104,12 @@ print(clean["Sex"].value_counts())
 # Assign the result back to `clean`.
 # Then print clean.columns and clean.head().
 # ----------------------------------------------------------------
-clean = pd.get_dummies(clean, columns=["Embarked"], drop_first=True).astype(int)
+clean = pd.get_dummies(clean, columns=["Embarked"], drop_first=True, dtype=int)
 
 print(clean.columns)
 print(clean.head())
 
-clean["Embarked_Q"] = clean["Embarked_Q"].astype(int)
-clean["Embarked_S"] = clean["Embarked_S"].astype(int)
 
-print(clean.columns)
-print(clean.head())
 # ----------------------------------------------------------------
 # Final check
 # ----------------------------------------------------------------
@@ -127,3 +123,12 @@ print(f"\nFirst 5 rows:\n{clean.head()}")
 clean.to_csv("titanic_clean.csv", index=False)
 print("\nSaved to titanic_clean.csv")
 
+# Add this near the end, before saving:
+print("\n=== Spot-check Fare and Age are still floats ===")
+print(f"Fare dtype: {clean['Fare'].dtype}")    # should be float64
+print(f"Age dtype:  {clean['Age'].dtype}")     # should be float64
+print(f"\nFirst 3 Fare values: {clean['Fare'].head(3).tolist()}")
+# Should show [7.25, 71.2833, 7.925] — with decimals!
+
+print(f"\nFirst 3 Age values: {clean['Age'].head(3).tolist()}")
+# Should show [22.0, 38.0, 26.0]
